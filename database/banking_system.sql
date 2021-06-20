@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2021 at 12:53 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.2
+-- Generation Time: Jun 20, 2021 at 11:43 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bank_db`
+-- Database: `banking_system`
 --
 
 -- --------------------------------------------------------
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `transfer` (
-  `sid` int(12) NOT NULL,
-  `sender` varchar(16) NOT NULL,
-  `receiver` varchar(16) NOT NULL,
-  `amount` int(16) NOT NULL
+  `sid` int(11) NOT NULL,
+  `sender` varchar(12) NOT NULL,
+  `receiver` varchar(12) NOT NULL,
+  `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -39,7 +39,13 @@ CREATE TABLE `transfer` (
 --
 
 INSERT INTO `transfer` (`sid`, `sender`, `receiver`, `amount`) VALUES
-(1, 'Yasmeen', 'Shoeib', 200);
+(1, 'Yasmeen', 'Shoeib', 200),
+(2, 'Huda', 'Hrithik', 100),
+(3, 'Rimsha', 'Soha', 150),
+(4, 'Hrithik', 'Innama', 50),
+(0, 'Aneeqa', 'Noora', 100),
+(0, 'Aneeqa', 'Yasmeen', 900),
+(0, 'Shoeib', 'Hrithik', 950);
 
 -- --------------------------------------------------------
 
@@ -48,10 +54,10 @@ INSERT INTO `transfer` (`sid`, `sender`, `receiver`, `amount`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(3) NOT NULL,
-  `name` varchar(16) NOT NULL,
-  `email` varchar(16) NOT NULL,
-  `balance` int(12) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `balance` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -60,39 +66,15 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `balance`) VALUES
 (1, 'Rimsha', 'rimsha@gmail.com', 10000),
-(2, 'Aneeqa', 'aneeqa@gmail.com', 15000);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `transfer`
---
-ALTER TABLE `transfer`
-  ADD PRIMARY KEY (`sid`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `transfer`
---
-ALTER TABLE `transfer`
-  MODIFY `sid` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+(2, 'Aneeqa', 'aneeqa@gmail.com', 14000),
+(3, 'Innama', 'innama@gmail.com', 9000),
+(4, 'Yasmeen', 'yasmeen@gmail.com', 8900),
+(5, 'Huda', 'huda@gmail.com', 14000),
+(6, 'Noora', 'noora@gmail.com', 17000),
+(7, 'Hrithik', 'hrithik@gmail.com', 6950),
+(8, 'Prateek', 'prateek@gmail.com', 8600),
+(9, 'Soha', 'soha@gmail.com', 12000),
+(10, 'Shoeib', 'shoeib@gmail.com', 9000);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -24,7 +24,7 @@ include 'export/header.php';
 <h2 class="sign text-center" style="margin-top: 100px; color: #ffffff;">Add a New User</h2>
 <br>
 <div class="col-sm-offset-4 col-sm-6 col-md-5 ">
-<form method="POST" action="user_script.php" >
+<form method="POST" action="user_s.php" >
 <div class="form-group">
 <label for="name" style="color:  #ffffff;">Name</label>
 <input type="text" class="form-control" name="name" placeholder="Name" required>
